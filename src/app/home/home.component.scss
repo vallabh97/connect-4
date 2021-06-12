@@ -1,0 +1,112 @@
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #adc3fb;
+
+  @keyframes result {
+    0% {color: whitesmoke}
+    100% {color: orangered}
+  }
+
+  .result-declaration {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 30px;
+    font-size: 37px;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    animation-name: result;
+
+    .winner-name {
+      text-transform: capitalize;
+    }
+  }
+
+  .play-area {
+    display: flex;
+    flex-direction: column;
+
+    .details-options {
+      display: flex;
+      justify-content: space-between;
+
+      .turn {
+        display: flex;
+        align-items: center;
+        color: #0000ff;
+        font-size: 25px;
+        margin: 0 0 10px 5px;
+
+        .text {
+          margin-right: 10px;
+        }
+
+        .turn-color {
+          height: 30px;
+          width: 30px;
+          border-radius: 50%;
+        }
+      }
+
+      .reset-btn {
+        img {
+          width: 30px;
+          margin-right: 5px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .rows-container {
+    background: #0000ff;
+    padding: 10px;
+    border-radius: 15px;
+    position: relative;
+
+    .coins-container {
+      display: flex;
+
+      .vacancy {
+        height: 0;
+        position: relative;
+        margin: 0 4px;
+      }
+    }
+
+    .hole {    
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      margin: 3px 4px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #adc3fb;
+      color: #0000ff;
+      font-size: 30px;
+      cursor: pointer;
+      position: relative;
+      
+      @keyframes toggle-red {
+        0% {background-color: red;}
+        100% {background-color: #00ff07;}
+      }
+
+      @keyframes toggle-yellow {
+        0% {background-color: yellow;}
+        100% {background-color: #00ff07;}
+      }
+    }
+
+    .coin {
+      position: absolute;
+    }
+  }
+}
+

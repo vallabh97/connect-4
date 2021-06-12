@@ -1,0 +1,33 @@
+<div class="game-container">
+  
+  <div *ngIf="winner" class="result-declaration">
+    <span class="winner-name">{{winner?.color}}</span> won!
+  </div>
+
+  <div *ngIf="isTie" class="result-declaration">
+    It's a Tie!
+  </div>
+
+  <div class="play-area">
+    <div class="details-options">
+      <div class="turn">
+        <div class="text">Turn:</div>
+        <div *ngIf="!isGameOver">
+          <div class="turn-color" [ngStyle]="{'background-color': currentPlayer?.color}"></div>
+        </div>
+      </div>
+
+      <div class="reset-btn">
+        <img (click)="onResetGame()" src="assets/icons/reset.png">
+      </div>
+    </div>
+
+    <div class="rows-container">
+      <div style="display:flex;" *ngFor="let row of rows; trackBy: trackRowsByIndex; let rowIndex = index;">
+        <div class="hole" id="hole-{{hole.id}}" *ngFor="let hole of row; let holeIndex = index; trackBy: trackRowHolesById;"
+          [ngClass]="{'winning-hole': hole.isWon}" (click)="onHoleClick(hole, rowIndex, holeIndex)">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
